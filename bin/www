@@ -4,22 +4,27 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('neoland-proyecto-server:server');
-var http = require('http');
+import { app } from '../app.js'
+import debugLib from 'debug'
+import http from 'http'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const debug = debugLib('neoland-proyecto-server:server')
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
