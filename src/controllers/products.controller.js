@@ -43,6 +43,7 @@ async function updateproduct(req, res) {
 
         const data = await productModel.findByIdAndUpdate(req.params.id, {name, price, quantity})
         res.send(data)
+        
     } catch (error) {
         console.log(error)
     }

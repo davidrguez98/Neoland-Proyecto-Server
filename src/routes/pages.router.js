@@ -1,9 +1,9 @@
 import { Router } from 'express'
-const indexRouter = Router()
+const pagesRouter = Router()
 
 /* GET home page. */
-indexRouter.get('/', function(req, res, next) {
+pagesRouter.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-export { indexRouter }
+export { pagesRouter }

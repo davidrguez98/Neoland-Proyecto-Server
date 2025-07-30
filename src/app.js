@@ -7,7 +7,7 @@ import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import cors from 'cors'
 
-import { indexRouter } from './routes/index.router.js'
+import { pagesRouter } from './routes/pages.router.js'
 import { usersRouter } from './routes/users.router.js'
 import { productsRouter } from './routes/products.router.js'
 
@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, '../public')))
 app.use(logger('dev'))
 
 // Routes
-app.use('/', indexRouter)
+app.use('/', pagesRouter)
 app.use('/api/users/', usersRouter)
 app.use('/api/products/', productsRouter)
 
