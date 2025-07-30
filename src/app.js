@@ -34,8 +34,8 @@ app.use(logger('dev'))
 
 // Routes
 app.use('/', pagesRouter)
-app.use('/api/users/', usersRouter)
-app.use('/api/products/', productsRouter)
+app.use('/api/users', usersRouter)
+app.use('/api/products', productsRouter)
 
 // Middelware for catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -27,7 +27,7 @@ async function newproduct(req, res) {
             quantity: quantity
         })
 
-        await newproduct
+        await newproduct.save()
         res.send("Producto creado correctamente")
     } catch (error) {
         console.log(error)

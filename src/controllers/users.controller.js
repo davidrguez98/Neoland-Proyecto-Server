@@ -27,7 +27,7 @@ async function newUser(req, res) {
             password: password
         })
 
-        await newUser
+        await newUser.save()
         res.send("Usuario creado correctamente")
     } catch (error) {
         console.log(error)
