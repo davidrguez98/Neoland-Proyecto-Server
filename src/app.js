@@ -7,7 +7,9 @@ import cookieParser from 'cookie-parser'
 import logger from 'morgan'
 import cors from 'cors'
 
-import { indexRouter } from './routes/index.js'
+import { indexRouter } from './routes/index.router.js'
+import { usersRouter } from './routes/users.router.js'
+import { productsRouter } from './routes/products.router.js'
 
 // Get __dirname
 const __filename = fileURLToPath(import.meta.url)
@@ -32,6 +34,8 @@ app.use(logger('dev'))
 
 // Routes
 app.use('/', indexRouter)
+app.use('/api/users/', usersRouter)
+app.use('/api/products/', productsRouter)
 
 // Middelware for catch 404 and forward to error handler
 app.use(function(req, res, next) {

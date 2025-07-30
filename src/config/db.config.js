@@ -5,7 +5,7 @@ async function BBDDConnection(urlBBDD) {
         await mongoose.connect(urlBBDD)
         console.log("Conectado con la base de datos")
     } catch (error) {
-        console.log(error)
+        console.log("Error en la conexión con MongoDB:", error)
     }
 }
 
