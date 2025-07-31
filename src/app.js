@@ -20,8 +20,8 @@ const app = express()
 
 // App setup
 app.use(cors())
-app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 app.use(cookieParser())
 
 // View engine setup
