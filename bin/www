@@ -16,7 +16,7 @@ app.set('port', port);
 // Create HTTP server.
 const server = http.createServer(app);
 
-startApp()
+
 
 // Start database and server
 async function startApp() {
@@ -84,3 +84,5 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+startApp()

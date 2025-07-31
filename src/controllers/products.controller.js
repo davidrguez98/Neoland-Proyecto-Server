@@ -21,16 +21,16 @@ async function getproduct(req, res) {
 async function newproduct(req, res) {
     try {
         const { name, price, quantity } = req.body
-        const newproduct = new productModel({
+        const newProduct = new productModel({
             name: name,
             price: price,
             quantity: quantity
         })
 
-        await newproduct.save()
+        await newProduct.save()
         res.send("Producto creado correctamente")
     } catch (error) {
-        console.log(error)
+        res.status(500).send(`Error: ${error}`)
     }
 }
 
