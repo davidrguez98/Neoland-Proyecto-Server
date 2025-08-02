@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken '
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
 import { userModel } from '../models/user.model.js'
 
@@ -78,12 +79,10 @@ async function loginUser(req, res) {
         if (!user || !passwordCheck) return res.status(401).send('Credenciales inválidas')
         
         const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' })
-        res.cookie('token', token)
-
-        req.session.userId = user._id(toString())
+        res.cookie(process.env.CLAVE_SECRETA_COOKIE, token)
     } catch (error) {
         console.log(error)
     }
 }
 
-export { getAllUsers, getUser, newUser, updateUser, deleteUser }
+export { getAllUsers, getUser, newUser, updateUser, deleteUser, loginUser }
