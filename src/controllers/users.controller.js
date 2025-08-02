@@ -2,9 +2,9 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import dotenv from 'dotenv'
 
-import { userModel } from '../models/user.model.js'
+dotenv.config()
 
-const JWT_SECRET = 'tu_clave_secreta'
+import { userModel } from '../models/user.model.js'
 
 async function getAllUsers(req, res) {
     try {
@@ -78,8 +78,10 @@ async function loginUser(req, res) {
 
         if (!user || !passwordCheck) return res.status(401).send('Credenciales inválidas')
         
-        const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: '1h' })
+        const token = jwt.sign({ id: user._id }, process.env.CLAVE_SECRETA_COOKIE)
         res.cookie(process.env.CLAVE_SECRETA_COOKIE, token)
+
+        res.render('dashboard', { tittle: 'Express' })
     } catch (error) {
         console.log(error)
     }

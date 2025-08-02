@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { loginUser } from '../controllers/users.controller.js'
+import { checkToken } from '../middlewares/checkToken.middleware.js'
 
 const pagesRouter = Router()
 
@@ -7,7 +7,7 @@ const pagesRouter = Router()
 pagesRouter.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' })
 })
-pagesRouter.get('/dashboard', (req, res, next) => {
+pagesRouter.get('/dashboard', checkToken, (req, res, next) => {
   res.render('dashboard', { title: 'Express' })
 })
 pagesRouter.get('/login', (req, res, next) => {
