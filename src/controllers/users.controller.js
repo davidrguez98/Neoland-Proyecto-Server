@@ -76,7 +76,7 @@ async function loginUser(req, res) {
         const user = await userModel.findOne({ email })
         const passwordCheck = await bcrypt.compare(password, user.password)
 
-        if (!user || !passwordCheck) return res.status(401).send('Credenciales inválidas')
+        if (!user || !passwordCheck) return res.status(401).send('Credenciales incorrectas')
         
         const token = jwt.sign({ id: user._id }, process.env.CLAVE_SECRETA_COOKIE)
         res.cookie(process.env.CLAVE_SECRETA_COOKIE, token)
