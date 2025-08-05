@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./stylesheets/style.client.css">
+</head>
+<body>
+    <main>
+        <h2>Listado de productos</h2>
+        <div id="productsContainer">
+            
+        </div>
+
+    </main>
+
+    <script>
+        fetch(
+            "http://localhost:4000/api/products", { 
+            method: "GET"
+            })
+            .then( res => res.json())
+            .then(data => {
+                data.forEach(product => {
+                    document.querySelector("#productsContainer").innerHTML += 
+                    `
+                    <div class="product-card">
+                        <div class="product-info">
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-description">
+                                ${product.description || 'Producto de alta calidad disponible en nuestra tienda.'}
+                            </p>
+                            <div class="product-details">
+                                <span class="product-price">${product.price}</span>
+                                <span class="product-stock"> Cantidad:
+                                    ${product.quantity}
+                                </span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="btn-add-cart">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    `  
+                })
+            })
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-async function checkToken(req, res, next) {
+async function checkUserLogged(req, res, next) {
     const token = req.cookies?.my_secret_token
 
     if (!token) return res.status(401).json({ message: 'Acceso denegado. Inicia sesión para continuar'})
@@ -19,4 +19,4 @@ async function checkToken(req, res, next) {
     }
 }
 
-export { checkToken }
+export { checkUserLogged }
