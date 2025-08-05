@@ -10,6 +10,7 @@ import cors from 'cors'
 import { pagesRouter } from './routes/pages.router.js'
 import { usersRouter } from './routes/users.router.js'
 import { productsRouter } from './routes/products.router.js'
+import { purchasesRouter } from './routes/purchase.router.js'
 
 // Get __dirname
 const __filename = fileURLToPath(import.meta.url)
@@ -36,6 +37,7 @@ app.use(logger('dev'))
 app.use('/', pagesRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/products', productsRouter)
+app.use('/api/purchases', purchasesRouter)
 
 // Middelware for catch 404 and forward to error handler
 app.use(function(req, res, next) {
