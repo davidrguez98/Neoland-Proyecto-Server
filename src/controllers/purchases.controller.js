@@ -11,14 +11,16 @@ async function getAllpurchaseDataModel(req, res) {
 
 async function newPurchaseInfo(req, res) {
     try {
-        const { productName, ip } = req.body
+        const { productName } = req.body
+        const clientIp = req.ip
+
         const newPurchaseData = new purchaseDataModel({
-            productName: productName,
-            ip: ip
+        productName,
+        ip: clientIp
         })
 
         await newPurchaseData.save()
-        res.send("Inofmración de compra obtenida correctamente")
+        res.send("Información de compra obtenida correctamente")
     } catch (error) {
         res.status(500).send(`Error: ${error}`)
     }

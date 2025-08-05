@@ -17,13 +17,12 @@
 
     <script>
         fetch(
-            "http://localhost:4000/api/products", { 
-            method: "GET"
-            })
+            "http://localhost:4000/api/products", { method: "GET" })
             .then( res => res.json())
             .then(data => {
+                const container = document.querySelector("#productsContainer")
                 data.forEach(product => {
-                    document.querySelector("#productsContainer").innerHTML += 
+                    container.innerHTML += 
                     `
                     <div class="product-card">
                         <div class="product-info">
@@ -42,9 +41,27 @@
                             </div>
                         </div>
                     </div>
-                    `  
+                    `
+                })
+                return buttons = container.querySelectorAll(".btn-add-cart")
+            })
+            .then(buttons => {
+                buttons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+
+                        const card = btn.closest(".product-card");
+                        const productName = card.querySelector(".product-name")?.textContent?.trim();
+                        
+                        fetch("http://localhost:4000/api/purchases", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ productName })
+                        })
+                        .then(alert(`Has comprado el producto ${productName}`))
+                    })
                 })
             })
+
     </script>
 </body>
 </html>
