@@ -10,10 +10,10 @@ pagesRouter.get('/', function(req, res, next) {
 pagesRouter.get('/dashboard', checkUserLogged, (req, res, next) => {
   res.render('dashboard', { title: 'Express' })
 })
-pagesRouter.get('/login', (req, res, next) => {
+pagesRouter.get('/api/users/login', (req, res, next) => {
   res.render('login', { title: 'Express' })
 })
-pagesRouter.get('/register', (req, res, next) => {
+pagesRouter.get('/api/users/register', (req, res, next) => {
   res.render('register', { title: 'Express' })
 })
 

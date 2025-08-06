@@ -37,7 +37,16 @@ async function newUser(req, res) {
         })
 
         await newUser.save()
-        res.send("Usuario creado correctamente")
+
+        res.status(200).json({
+            success: true,
+            message: 'Registro exitoso',
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email
+            }
+        })
     } catch (error) {
         console.log(error)
     }
@@ -72,6 +81,7 @@ async function deleteUser(req, res) {
 
 async function loginUser(req, res) {
     try {
+        console.log("Ejecutando funcion login")
         const { email, password } = req.body
         const user = await userModel.findOne({ email })
         const passwordCheck = await bcrypt.compare(password, user.password)
@@ -79,9 +89,17 @@ async function loginUser(req, res) {
         if (!user || !passwordCheck) return res.status(401).send('Credenciales incorrectas')
         
         const token = jwt.sign({ id: user._id }, process.env.CLAVE_SECRETA_COOKIE)
-        res.cookie(process.env.CLAVE_SECRETA_COOKIE, token)
+        res.cookie(process.env.CLAVE_SECRETA_COOKIE, token, { maxAge: 60 * 60 * 1000 })
 
-        res.render('dashboard', { tittle: 'Express' })
+        res.status(200).json({
+            success: true,
+            message: 'Login exitoso',
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email
+            }
+        })
     } catch (error) {
         console.log(error)
     }

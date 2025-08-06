@@ -3,6 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script defer src="/javascripts/login.page.js"></script>
   </head>
   <body>
     
@@ -16,7 +17,7 @@
                     <p class="login-subtitle">Accede a tu cuenta para continuar</p>
                 </div>
                 
-                <form class="login-form" action="/auth/login" method="POST">
+                <form id="login-form" class="login-form" action="/auth/login" method="POST">
                     <div class="input-group">
                         <input 
                             type="email" 
@@ -39,17 +40,19 @@
                         >
                     </div>
                     
-                    <button type="submit" class="login-btn">
+                    <button id="btn-login" type="submit" class="login-btn">
                         <span>LOGIN</span>
                     </button>
                 </form>
                 
                 <div class="login-footer">
-                    <p>¿No tienes cuenta? <a href="/register" class="register-link">Regístrate aquí</a></p>
+                    <p>¿No tienes cuenta? <a href="/api/users/register" class="register-link">Regístrate aquí</a></p>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- script para capturar los inputs (sin recargar) y se envía con fetch +post -->
     
   </body>
 </html>

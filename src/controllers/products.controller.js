@@ -1,6 +1,6 @@
 import { productModel } from '../models/product.model.js'
 
-async function getAllproducts(req, res) {
+async function getAllProducts(req, res) {
     try {
         const data = await productModel.find()
         res.send(data)
@@ -9,7 +9,7 @@ async function getAllproducts(req, res) {
     }
 }
 
-async function getproduct(req, res) {
+async function getProduct(req, res) {
     try {
         const data = await productModel.findById(req.params.id)
         res.send(data)
@@ -18,7 +18,7 @@ async function getproduct(req, res) {
     }
 }
 
-async function newproduct(req, res) {
+async function newProduct(req, res) {
     try {
         const { name, price, quantity } = req.body
         const newProduct = new productModel({
@@ -34,7 +34,7 @@ async function newproduct(req, res) {
     }
 }
 
-async function updateproduct(req, res) {
+async function updateProduct(req, res) {
     try {
         const { name, price, quantity } = req.body
         const productCheck = await productModel.findById(req.params.id)
@@ -49,7 +49,7 @@ async function updateproduct(req, res) {
     }
 }
 
-async function deleteproduct(req, res) {
+async function deleteProduct(req, res) {
     try {
         const productCheck = await productModel.findById(req.params.id)
 
@@ -62,4 +62,4 @@ async function deleteproduct(req, res) {
     }
 }
 
-export { getAllproducts, getproduct, newproduct, updateproduct, deleteproduct }
+export { getAllProducts, getProduct, newProduct, updateProduct, deleteProduct }
