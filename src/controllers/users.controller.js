@@ -105,4 +105,13 @@ async function loginUser(req, res) {
     }
 }
 
-export { getAllUsers, getUser, newUser, updateUser, deleteUser, loginUser }
+async function logoutUser(req, res) {
+    try {
+        res.clearCookie(process.env.CLAVE_SECRETA_COOKIE)
+        res.json("Sesión cerrada")
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export { getAllUsers, getUser, newUser, updateUser, deleteUser, loginUser, logoutUser }

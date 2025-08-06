@@ -29,7 +29,7 @@ function main() {
                 alert("Error")
             }
         } catch (error) {
-            console.log("Error de conexión")
+            console.log(`Error: ${error}`)
         }
     })
 }

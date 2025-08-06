@@ -43,6 +43,7 @@ body {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center; /* Asegura que todos los elementos estén alineados */
 }
 
 .navbar-link {
@@ -55,12 +56,18 @@ body {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    border: none; /* Elimina border del botón */
+    background: transparent; /* Background transparente por defecto */
+    cursor: pointer;
+    height: auto; /* Altura automática para alineación */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar-link:hover {
     background: #667eea;
     color: white;
-    transform: translateY(-2px);
 }
 
 .logout-btn {
@@ -69,8 +76,9 @@ body {
 }
 
 .logout-btn:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
+    background: #ff5252; /* Cambiado: solo cambia el color, sin movimiento */
+    color: white !important;
+    transform: none; /* Elimina el efecto de movimiento */
 }
 
 /* Main Content */
@@ -315,7 +323,7 @@ body {
         0 20px 60px rgba(0, 0, 0, 0.15),
         0 8px 25px rgba(0, 0, 0, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
     position: relative;
     transform: translateY(0);
     transition: all 0.4s ease;
@@ -1053,45 +1061,6 @@ body {
     /* Login responsive móvil */
     .login-card {
         padding: 30px 25px;
-        margin: 0 10px;
-    }
-    
-    .login-title {
-        font-size: 1.6rem;
-    }
-    
-    .login-input {
-        padding: 16px 20px;
-    }
-    
-    .login-btn {
-        padding: 16px 28px;
-    }
-
-    /* Welcome responsive móvil */
-    .welcome-title {
-        font-size: 2rem;
-    }
-    
-    .welcome-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .feature-card {
-        padding: 25px 20px;
-    }
-    
-    .welcome-cta {
-        padding: 35px 25px;
-    }
-    
-    .cta-title {
-        font-size: 1.6rem;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-        padding: 16px 30px;
-        font-size: 1rem;
+        margin: 0
     }
 }
