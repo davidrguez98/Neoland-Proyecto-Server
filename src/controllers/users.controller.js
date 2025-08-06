@@ -88,8 +88,8 @@ async function loginUser(req, res) {
 
         if (!user || !passwordCheck) return res.status(401).send('Credenciales incorrectas')
         
-        const token = jwt.sign({ id: user._id }, process.env.CLAVE_SECRETA_COOKIE)
-        res.cookie(process.env.CLAVE_SECRETA_COOKIE, token, { maxAge: 60 * 60 * 1000 })
+        const token = jwt.sign({ id: user._id }, process.env.CLAVE_SECRETA_COOKIE, { expiresIn: '10m' })
+        res.cookie(process.env.CLAVE_SECRETA_COOKIE, token)
 
         res.status(200).json({
             success: true,
