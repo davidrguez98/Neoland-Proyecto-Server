@@ -6,10 +6,10 @@ const usersRouter = Router()
 
 usersRouter.get('/', getAllUsers)
 usersRouter.get('/:id', getUser)
-usersRouter.post('/', newUser)
 usersRouter.put('/:id', updateUser)
 usersRouter.delete('/:id', deleteUser)
 usersRouter.post('/login', loginUser)
 usersRouter.post('/logout', logoutUser)
+usersRouter.post('/register', newUser)
 
 export { usersRouter }

@@ -42,9 +42,9 @@ async function newUser(req, res) {
             success: true,
             message: 'Registro exitoso',
             user: {
-                id: user._id,
-                name: user.name,
-                email: user.email
+                id: newUser._id,
+                name: newUser.name,
+                email: newUser.email
             }
         })
     } catch (error) {
