@@ -16,11 +16,12 @@
     </main>
 
     <script>
+        const container = document.querySelector("#productsContainer")
+
         fetch(
             "http://localhost:4000/api/products", { method: "GET" })
             .then( res => res.json())
             .then(data => {
-                const container = document.querySelector("#productsContainer")
                 data.forEach(product => {
                     container.innerHTML += 
                     `
@@ -42,26 +43,23 @@
                         </div>
                     </div>
                     `
-                })
-                return buttons = container.querySelectorAll(".btn-add-cart")
-            })
-            .then(buttons => {
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", () => {
 
-                        const card = btn.closest(".product-card");
-                        const productName = card.querySelector(".product-name")?.textContent?.trim();
-                        
+                    const btn = container.querySelector(".btn-add-cart")
+                    btn.addEventListener("click", () => {
                         fetch("http://localhost:4000/api/purchases", {
                             method: "POST",
-                            headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({ productName })
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify(product)
                         })
-                        .then(alert(`Has comprado el producto ${productName}`))
+                        .then(res => { if (res.ok) alert(`Has comprado el producto ${product.name}`)})
+                        .catch(error => {alert("Error al realizar la compra")}) 
                     })
                 })
             })
-
+            .catch(error => {
+                container.innerHTML = "<h3>Error al cargar los productos</h3>"
+                console.log(`Error: ${error.this.status}`)
+            })
     </script>
 </body>
 </html>
