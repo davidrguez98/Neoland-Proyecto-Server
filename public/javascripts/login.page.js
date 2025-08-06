@@ -26,7 +26,7 @@ function main() {
             if (response.ok) {
                 window.location.href = '/dashboard'
             } else {
-                alert("Error")
+                alert("Credenciales incorrectas")
             }
         } catch (error) {
             console.log(`Error: ${error}`)
