@@ -3,7 +3,7 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- <script defer src="/javascripts/dashboard.page.js"></script> -->
+    <script defer src="/javascripts/dashboard.page.js"></script>
   </head>
   <body>
     
@@ -51,7 +51,7 @@
             <!-- Formulario para crear producto -->
             <section class="create-product-section">
                 <h2>Crear Producto</h2>
-                <form class="product-form" action="/products" method="POST">
+                <form id="product-form" class="product-form">
                     <div class="form-group">
                         <input type="text" id="new-name" name="name" placeholder="Nombre del producto" required>
                     </div>

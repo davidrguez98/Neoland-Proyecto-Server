@@ -28,9 +28,18 @@ async function newProduct(req, res) {
         })
 
         await newProduct.save()
-        res.send("Producto creado correctamente")
+        
+        res.status(200).json({
+            success: true,
+            user: {
+                name: newProduct.name,
+                price: newProduct.price,
+                quantity: newProduct.quantity
+            }
+        })
     } catch (error) {
         res.status(500).send(`Error: ${error}`)
+        res.status(11000).send('Error: Ya existe un producto con ese nombre')
     }
 }
 
