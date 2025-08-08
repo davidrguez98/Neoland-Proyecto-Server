@@ -1,20 +1,13 @@
 import { Router } from 'express'
 import { checkUserLogged } from '../middlewares/checkUserLogged.middleware.js'
+import { renderDashboard, renderHomepage, renderLogin, renderResgister } from '../controllers/pages.controller.js'
 
 const pagesRouter = Router()
 
 /* GET home page. */
-pagesRouter.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' })
-})
-pagesRouter.get('/dashboard', checkUserLogged, (req, res, next) => {
-  res.render('dashboard', { title: 'Express' })
-})
-pagesRouter.get('/api/users/login', (req, res, next) => {
-  res.render('login', { title: 'Express' })
-})
-pagesRouter.get('/api/users/register', (req, res, next) => {
-  res.render('register', { title: 'Express' })
-})
+pagesRouter.get('/', renderHomepage)
+pagesRouter.get('/dashboard', checkUserLogged, renderDashboard)
+pagesRouter.get('/api/users/login', renderLogin)
+pagesRouter.get('/api/users/register', renderResgister)
 
 export { pagesRouter }

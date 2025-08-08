@@ -2,8 +2,8 @@ import { productModel } from '../models/product.model.js'
 
 async function getAllProducts(req, res) {
     try {
-        const data = await productModel.find()
-        res.send(data)
+        const products = await productModel.find()
+        res.send(products)
     } catch (error) {
         console.log(error)
     }
