@@ -31,10 +31,10 @@
                                     </div>
                                 </div>
                                 <div class="product-actions">
-                                    <button class="btn btn-edit" onclick="editProduct('<%= product.id %>')">
+                                    <button class="btn btn-edit" data-id='<%= product._id %>'>
                                         Editar
                                     </button>
-                                    <button class="btn btn-delete" onclick="deleteProduct('<%= product.id %>')">
+                                    <button class="btn btn-delete" data-id='<%= product._id %>'>
                                         Eliminar
                                     </button>
                                 </div>
