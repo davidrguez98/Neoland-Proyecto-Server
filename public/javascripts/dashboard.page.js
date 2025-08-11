@@ -79,7 +79,6 @@ function main() {
                     })
 
                     if (response.ok) {
-                        alert('Producto eliminado correctamente.')
                         location.reload()
                     }
                 } catch (error) {
@@ -136,7 +135,6 @@ function main() {
             })
 
             if (response.ok) {
-                alert('Producto actualizado correctamente.')
                 closeModal()
                 location.reload()
             } else {

@@ -22,7 +22,7 @@ main {
 }
 
 /* Título principal */
-main h2, main h3 {
+main h2, .product-list-tittle {
     color: white;
     font-size: 2.5rem;
     font-weight: 700;

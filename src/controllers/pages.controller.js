@@ -32,7 +32,7 @@ async function renderLogin(req, res) {
 
 async function renderResgister(req, res) {
     try {
-        res.render('resgister', { title: 'Express' })
+        res.render('register', { title: 'Express' })
     } catch (error) {
         console.log(`Error: ${error}`)
     }
