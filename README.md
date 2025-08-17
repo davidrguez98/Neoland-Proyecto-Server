@@ -1,4 +1,3 @@
-```markdown
 # Neoland Proyecto Server 🛒💻
 
 Servidor backend desarrollado en Node.js con Express y MongoDB para la gestión de usuarios, productos y compras. Utiliza arquitectura MVC, motor de vistas EJS y control de acceso mediante middlewares. Está diseñado para integrarse con un frontend o utilizarse directamente como base para un sistema de e-commerce o dashboard administrativo.
@@ -95,7 +94,7 @@ NEOLAND-PROYECTO-SERVER/
 
 5. El servidor estará disponible en:
    ```
-   http://localhost:3000
+   http://localhost:4000
    ```
 
 ## 📝 Ejemplo de endpoints
@@ -120,4 +119,3 @@ Si quieres ponerte en contacto conmigo:
 - [GitHub](https://github.com/davidrguez98)
 - [LinkedIn](https://www.linkedin.com/in/david-rodr%C3%ADguez-p%C3%A9rez-softdev/)
 - Correo: ropeda98@gmail.com
-```
