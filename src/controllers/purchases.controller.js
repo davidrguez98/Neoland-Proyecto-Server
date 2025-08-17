@@ -11,12 +11,16 @@ async function getAllpurchaseDataModel(req, res) {
 
 async function newPurchaseInfo(req, res) {
     try {
-        const { productName } = req.body
+        const { productName, developer, applicationSource } = req.body
         const clientIp = req.ip
+        const purchaseDate = new Date()
 
         const newPurchaseData = new purchaseDataModel({
         productName,
-        ip: clientIp
+        developer,
+        applicationSource,
+        ip: clientIp,
+        purchaseDate: purchaseDate
         })
 
         await newPurchaseData.save()
